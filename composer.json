@@ -6,6 +6,8 @@
             "BoogieFromZk\\AgoraToken\\": "src/"
         }
     },
-    "require": {},
+    "require": {
+        "php": ">=7.1"
+    },
     "license": "ISC"
 }
