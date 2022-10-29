@@ -64,3 +64,20 @@ svn export https://github.com/AgoraIO/Tools/trunk/DynamicKey/AgoraDynamicKey/php
 cd ./src
 sed -i 's/<?php/<?php\n\nnamespace BoogieFromZk\\AgoraToken;/' *
 ```
+
+## Useful links
+* Agora Use cases https://github.com/AgoraIO-usecase
+* Agora examples https://gist.github.com/digitallysavvy
+
+* Broadcasting RTC demo https://github.com/digitallysavvy/agora-web-broadcast-demo
+* Subscribing RTC channels https://github.com/AgoraIO/API-Examples-Web/blob/main/Demo/joinMutlipleChannel/joinMultipleChannel.js
+* RTC event descriptions https://gist.github.com/digitallysavvy/4ef54c791fe88c668cfe3420d7f6558f
+
+* Agora RTM tokens https://docs.agora.io/en/signaling/develop/authentication-workflow
+* RTM example https://github.com/AgoraIO/RTM/blob/master/Agora-RTM-Tutorial-Web/src/rtm-client.js
+
+* Agora Chat REST API https://docs.agora.io/en/agora-chat/restful-api/user-system-registration
+* Agora Chat Presence https://docs.agora.io/en/agora-chat/restful-api/presence#path-parameter
+https://docs.agora.io/en/agora-chat/restful-api/presence#status-codes
+* Agora Chat subscription to events example https://github.com/AgoraIO-Usecase/AgoraChat-web/blob/main/src/utils/WebIMListen.js
+* Agora Chat send message example https://docs.agora.io/en/agora-chat/client-api/messages/send-receive-messages#send-a-customized-message
