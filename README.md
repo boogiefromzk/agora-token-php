@@ -54,6 +54,8 @@ More examples you can find in samples folder of Agora Tools project:
 
 https://github.com/AgoraIO/Tools/tree/master/DynamicKey/AgoraDynamicKey/php/sample
 
+In order to set and retrieve user's presence in Agora Chat please ensure that the feature is enabled from your Agora Chat Console. In order to enable it, from your Agora Chat Console menu, click on Features -> Overview -> Under "Message Feature Configuration" look for "Others" and ensure that Presence is set to enabled.
+
 ## Update files script
 
 This script is for internal use, - it updates files in /src folder.
