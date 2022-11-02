@@ -19,6 +19,8 @@ Install the package.
 composer require boogiefromzk/agora-token
 ```
 
+### Agora Chat Token
+
 Create the app token for using REST API to register users.
 
 ```
@@ -50,11 +52,28 @@ $agoraUsername = ... // Username used for user registration above.
 $token = ChatTokenBuilder2::buildUserToken($appID, $appCertificate, $agoraUsername, $expiresInSeconds);
 ```
 
+In order to set and retrieve user's presence in Agora Chat please ensure that the feature is enabled from your Agora Chat Console. In order to enable it, from your Agora Chat Console menu, click on Features -> Overview -> Under "Message Feature Configuration" look for "Others" and ensure that Presence is set to enabled.
+
+### Agora RTC Token
+
+```
+use BoogieFromZk\AgoraToken\RtcTokenBuilder2;
+
+$appID = ... // App ID from Agora client area.
+$appCertificate = ... // App Certificate from Agora client area.
+$expiresInSeconds = ... // For how many seconds this token is kept valid.
+$channelName = ... // Channel name which should be accessible.
+$uid = ... // Identifier of user.
+$role = RtcTokenBuilder2::ROLE_PUBLISHER;
+
+$token = RtcTokenBuilder2::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $expiresInSeconds);
+```
+
+### More Examples
+
 More examples you can find in samples folder of Agora Tools project:
 
 https://github.com/AgoraIO/Tools/tree/master/DynamicKey/AgoraDynamicKey/php/sample
-
-In order to set and retrieve user's presence in Agora Chat please ensure that the feature is enabled from your Agora Chat Console. In order to enable it, from your Agora Chat Console menu, click on Features -> Overview -> Under "Message Feature Configuration" look for "Others" and ensure that Presence is set to enabled.
 
 ## Update files script
 
@@ -83,3 +102,4 @@ sed -i 's/<?php/<?php\n\nnamespace BoogieFromZk\\AgoraToken;/' *
 https://docs.agora.io/en/agora-chat/restful-api/presence#status-codes
 * Agora Chat subscription to events example https://github.com/AgoraIO-Usecase/AgoraChat-web/blob/main/src/utils/WebIMListen.js
 * Agora Chat send message example https://docs.agora.io/en/agora-chat/client-api/messages/send-receive-messages#send-a-customized-message
+* Agora Chat set nickname https://docs.agora.io/en/agora-chat/restful-api/offline-push#set-the-display-style-in-push-notifications
