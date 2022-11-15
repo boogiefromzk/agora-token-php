@@ -93,6 +93,7 @@ sed -i 's/<?php/<?php\n\nnamespace BoogieFromZk\\AgoraToken;/' *
 * Broadcasting RTC demo https://github.com/digitallysavvy/agora-web-broadcast-demo
 * Subscribing RTC channels https://github.com/AgoraIO/API-Examples-Web/blob/main/Demo/joinMutlipleChannel/joinMultipleChannel.js
 * RTC event descriptions https://gist.github.com/digitallysavvy/4ef54c791fe88c668cfe3420d7f6558f
+* RTC test camera and microphone https://docs.agora.io/en/3.x/voice-calling/basic-features/lastmile-quality?platform=web
 
 * Agora RTM tokens https://docs.agora.io/en/signaling/develop/authentication-workflow
 * RTM example https://github.com/AgoraIO/RTM/blob/master/Agora-RTM-Tutorial-Web/src/rtm-client.js
