@@ -81,7 +81,9 @@ This script is for internal use, - it updates files in /src folder.
 
 ```
 rm -rf ./src
-svn export https://github.com/AgoraIO/Tools/trunk/DynamicKey/AgoraDynamicKey/php/src
+git clone git@github.com:AgoraIO/Tools.git /tmp/agora_tools
+cp -r /tmp/agora_tools/DynamicKey/AgoraDynamicKey/php/src .
+rm -rf /tmp/agora_tools
 cd ./src
 sed -i 's/<?php/<?php\n\nnamespace BoogieFromZk\\AgoraToken;/' *
 ```
