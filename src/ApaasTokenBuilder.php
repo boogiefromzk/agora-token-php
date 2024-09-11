@@ -4,7 +4,7 @@ namespace BoogieFromZk\AgoraToken;
 
 require_once "AccessToken2.php";
 
-class EducationTokenBuilder
+class ApaasTokenBuilder
 {
     /**
      * Build room user token.
