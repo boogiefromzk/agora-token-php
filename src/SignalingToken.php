@@ -4,6 +4,9 @@ namespace BoogieFromZk\AgoraToken;
 
 $SDK_VERSION = "1";
 
+/**
+ * Generate a legacy signaling token for an account.
+ */
 function getToken($appid, $appcertificate, $account, $validTimeInSeconds){
     global $SDK_VERSION;
     $expiredTime = time() + $validTimeInSeconds;

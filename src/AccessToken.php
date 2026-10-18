@@ -7,6 +7,10 @@ class Message
     public $salt;
     public $ts;
     public $privileges;
+
+    /**
+     * Create a message with a random salt and default timestamp.
+     */
     public function __construct()
     {
         $this->salt = rand(0, 100000);
@@ -17,6 +21,9 @@ class Message
         $this->privileges = array();
     }
 
+    /**
+     * Serialize message metadata and privileges.
+     */
     public function packContent()
     {
         $buffer = unpack("C*", pack("V", $this->salt));
@@ -29,6 +36,9 @@ class Message
         return $buffer;
     }
 
+    /**
+     * Deserialize message metadata and privileges.
+     */
     public function unpackContent($msg)
     {
         $pos = 0;
@@ -66,11 +76,17 @@ class AccessToken
     public $appID, $appCertificate, $channelName, $uid;
     public $message;
 
+    /**
+     * Create an empty legacy AccessToken builder.
+     */
     function __construct()
     {
         $this->message = new Message();
     }
 
+    /**
+     * Normalize and store a numeric or string user ID.
+     */
     function setUid($uid)
     {
         if ($uid === 0) {
@@ -80,6 +96,9 @@ class AccessToken
         }
     }
 
+    /**
+     * Validate that a named value is a non-empty string.
+     */
     function is_nonempty_string($name, $str)
     {
         if (is_string($str) && $str !== "") {
@@ -89,6 +108,9 @@ class AccessToken
         return false;
     }
 
+    /**
+     * Create a legacy AccessToken builder from application fields.
+     */
     static function init($appID, $appCertificate, $channelName, $uid)
     {
         $accessToken = new AccessToken();
@@ -108,6 +130,9 @@ class AccessToken
         return $accessToken;
     }
 
+    /**
+     * Create a legacy AccessToken instance by parsing an existing token.
+     */
     static function initWithToken($token, $appCertificate, $channel, $uid)
     {
         $accessToken = new AccessToken();
@@ -117,12 +142,18 @@ class AccessToken
         return $accessToken;
     }
 
+    /**
+     * Add or update a privilege expiration timestamp.
+     */
     function addPrivilege($key, $expireTimestamp)
     {
         $this->message->privileges[$key] = $expireTimestamp;
         return $this;
     }
 
+    /**
+     * Parse a legacy Token006 payload into this instance.
+     */
     function extract($token, $appCertificate, $channelName, $uid)
     {
         $ver_len = 3;
@@ -167,6 +198,9 @@ class AccessToken
         return true;
     }
 
+    /**
+     * Build a signed legacy Token006 token.
+     */
     function build()
     {
         $msg = $this->message->packContent();
@@ -184,6 +218,9 @@ class AccessToken
     }
 }
 
+/**
+ * Pack a string with an unsigned 16-bit length prefix.
+ */
 function packString($value)
 {
     return pack("v", strlen($value)) . $value;
